@@ -33,4 +33,8 @@ public class CalculatorTest {
 	public void testNewLineCharInput2() {
 		assertEquals(18, Calculator.add("1\n2\n3,10\n1,1"));
 	}
+	@Test(expected=IllegalArgumentException.class)
+	public void testAddNegNumber() {
+		assertEquals("Negatives not allowed: -4,-5", Calculator.add("2,-4,3,-5"));
+	}
 }
