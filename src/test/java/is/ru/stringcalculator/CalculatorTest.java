@@ -22,7 +22,15 @@ public class CalculatorTest {
 		assertEquals(10, Calculator.add("1,2,3,4"));
 	}
 	@Test
+	public void testManyNumbersInput1() {
+		assertEquals(1, Calculator.add("0,0,0,1"));
+	}
+	@Test
 	public void testNewLineChar() {
 		assertEquals(6, Calculator.add("1\n2,3"));
+	}
+	@Test
+	public void testNewLineCharInput2() {
+		assertEquals(18, Calculator.add("1\n2\n3,10\n1,1"));
 	}
 }
