@@ -18,6 +18,9 @@ private static int toInt(String number){
 }
 
 private static String[] splitNumbers(String numbers){
+    String replace = "\n";
+    String replaceWith = ",";
+    numbers = numbers.replaceAll(replace, replaceWith);
     return numbers.split(",");
 }
 
