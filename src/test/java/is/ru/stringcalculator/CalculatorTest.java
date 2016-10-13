@@ -41,4 +41,8 @@ public class CalculatorTest {
 	public void testAddNegNumberInput1() {
 		assertEquals("Negatives not allowed: -1", Calculator.add("-1,2"));
 	}
+	@Test
+	public void testIfIgnoreTooHighNums() {
+		assertEquals(2, Calculator.add("1001,2"));
+	}
 }
