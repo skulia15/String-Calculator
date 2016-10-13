@@ -28,10 +28,17 @@ public class Calculator {
     checkForNeg(numbers);
     int total = 0;
     for(String number : numbers){
-      total += toInt(number);
+      if(checkForHighNum(number)){
+        total += toInt(number);
+      }
     }
     return total;
   }
+
+  private static boolean checkForHighNum(String number){
+    return(toInt(number) <= 1000);
+  }
+
   private static void checkForNeg(String[] numbers){
     String negatives = createString(numbers);
     if(negatives != ""){
