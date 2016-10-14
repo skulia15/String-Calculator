@@ -32,6 +32,10 @@ public class Calculator {
   private static String[] splitNumbersOnDelim(String text){
     String [] getDelim = text.split("\n");
     String delim = getDelim[0].substring(2, 3);
+    return replaceWithDelim(text, getDelim, delim);
+  }
+
+  private static String [] replaceWithDelim(String text, String [] getDelim, String delim){
     text = text.substring(getDelim[0].length() + 1, text.length());
     String replace = "\n";
     text = text.replaceAll(replace, delim);
