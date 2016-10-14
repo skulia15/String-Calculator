@@ -3,6 +3,10 @@ package is.ru.stringcalculator;
 public class Calculator {
 
   public static int add(String text){
+    if(text.startsWith("//")){
+      return sum(splitNumbersOnDelim(text));
+    }
+
   	if(text.equals("")){
   		return 0;
   	}
@@ -13,6 +17,7 @@ public class Calculator {
   		return 1;
   }
 
+
   private static int toInt(String number){
     return Integer.parseInt(number);
   }
@@ -22,6 +27,17 @@ public class Calculator {
     String replaceWith = ",";
     numbers = numbers.replaceAll(replace, replaceWith);
     return numbers.split(",");
+  }
+
+  private static String[] splitNumbersOnDelim(String text){
+    String [] getDelim = text.split("\n");
+    String delim = getDelim[0].substring(2, 3);
+    text = text.substring(getDelim[0].length() + 1, text.length());
+    String replace = "\n";
+    text = text.replaceAll(replace, delim);
+    replace = ",";
+    text = text.replaceAll(replace, delim);
+    return text.split(delim);
   }
 
   private static int sum(String[] numbers){
@@ -45,6 +61,7 @@ public class Calculator {
       throw new IllegalArgumentException("Negatives not allowed:" + negatives);
     }
   }
+
   private static String createString(String[] numbers){
     String negatives = "";
     for(String number : numbers){
